@@ -1,0 +1,26 @@
+modules:
+  jira:issuePanel:
+    - key: arty-test1-hello-world-issue-panel
+      resource: main
+      resolver:
+        function: resolver
+      render: native
+      title: arty-test1
+      icon: https://storage.googleapis.com/arty-storage-public/arty-logo1.jpg
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: src/frontend/index.jsx
+permissions:
+  scopes:
+    - 'read:jira-work'
+  external:
+    fetch:
+      backend:
+        - 'api.openai.com'
+app:
+  runtime:
+    name: nodejs18.x
+  id: ari:cloud:ecosystem::app/17aa0df2-b2c4-4d9f-ab8c-6be7713f7a61
