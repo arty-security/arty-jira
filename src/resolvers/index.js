@@ -84,7 +84,7 @@ resolver.define('callAssistant', async ({ payload, context }) => {
         'OpenAI-Beta': 'assistants=v2'
       },
       body: JSON.stringify({
-        assistant_id: 'asst_atkYPtA6QSH8Ow1TXbeZ5mQH'
+        assistant_id: 'asst_Ex53J0A24sAVTzeL1DetyFDT'
       })
     });
 
