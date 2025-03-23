@@ -5,7 +5,7 @@ modules:
       resolver:
         function: resolver
       render: native
-      title: arty-test1
+      title: arty-security
       icon: https://storage.googleapis.com/arty-storage-public/arty-logo1.jpg
   function:
     - key: resolver
@@ -16,6 +16,7 @@ resources:
 permissions:
   scopes:
     - 'read:jira-work'
+    - 'write:jira-work'
   external:
     fetch:
       backend:

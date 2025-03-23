@@ -1,6 +1,7 @@
 import Resolver from '@forge/resolver';
 import api, { route, fetch } from '@forge/api';
 
+
 //const { Configuration, OpenAIApi } = require('openai');
 
 
@@ -163,6 +164,7 @@ const getOpenAPIKey = () => {
 }
 
 // Format assistant message
+/*
 const formatAssistantMessage = (message) => {
   // Split the message into lines and format them with bullet points and paragraphs
   const lines = message.split('\n');
@@ -173,6 +175,40 @@ const formatAssistantMessage = (message) => {
       if (line.startsWith('- ')) {
         formattedMessage += `- ${line.slice(2)}\n`;
       } else {
+        formattedMessage += `${line}\n\n`;
+      }
+    }
+  }
+
+  return formattedMessage.trim();
+};
+*/
+
+const formatAssistantMessage = (message) => {
+  // Split the message into lines and format them with bullet points and paragraphs
+  const lines = message.split('\n');
+  let formattedMessage = '';
+  let inBulletList = false;
+
+  for (const line of lines) {
+    if (line.trim()) {
+      if (line.startsWith('- ')) {
+        if (!inBulletList) {
+          formattedMessage += '\n';  // Ensure a new line before bullet points
+          inBulletList = true;
+        }
+        formattedMessage += `${line}\n`;
+      } else if (line.startsWith('**')) {
+        if (inBulletList) {
+          formattedMessage += '\n';  // Ensure a new line after bullet points
+          inBulletList = false;
+        }
+        formattedMessage += `**${line.slice(2, line.length - 2)}**\n\n`;
+      } else {
+        if (inBulletList) {
+          formattedMessage += '\n';  // Ensure a new line after bullet points
+          inBulletList = false;
+        }
         formattedMessage += `${line}\n\n`;
       }
     }
