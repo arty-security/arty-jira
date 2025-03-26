@@ -1,39 +1,90 @@
-# Forge Hello World
+Some goals for Arty AI:
 
-This project contains a Forge app written in Javascript that displays `Hello World!` in a Jira issue panel. 
+🛠️ Arty AI – Setup Guide
+Welcome to Arty AI, your AI-powered co-pilot for threat modeling and secure-by-design development. This guide walks you through how to integrate Arty with your existing Jira workflow and start seeing results in minutes.
 
-See [developer.atlassian.com/platform/forge/](https://developer.atlassian.com/platform/forge) for documentation and tutorials explaining Forge.
+✅ What You Need Before You Start
+A Jira Cloud account (Jira Software or Jira Service Management)
 
-## Requirements
+Admin access to your Jira workspace
 
-See [Set up Forge](https://developer.atlassian.com/platform/forge/set-up-forge/) for instructions to get set up.
+An Arty AI account (sign up at [your-url.com])
 
-## Quick start
+🔗 Step 1: Install the Arty AI Jira App
+Go to your Jira workspace.
 
-- Modify your app frontend by editing the `src/frontend/index.jsx` file.
+In the left sidebar, click on Apps > Explore More Apps.
 
-- Modify your app backend by editing the `src/resolvers/index.js` file to define resolver functions. See [Forge resolvers](https://developer.atlassian.com/platform/forge/runtime-reference/custom-ui-resolver/) for documentation on resolver functions.
+Search for Arty AI.
 
-- Build and deploy your app by running:
-```
-forge deploy
-```
+Click Install and grant the requested permissions.
 
-- Install your app in an Atlassian site by running:
-```
-forge install
-```
+Once installed, go to Manage Apps > Arty AI.
 
-- Develop your app by running `forge tunnel` to proxy invocations locally:
-```
-forge tunnel
-```
+🔐 Step 2: Authenticate Arty
+Open the Arty AI app in Jira.
 
-### Notes
-- Use the `forge deploy` command when you want to persist code changes.
-- Use the `forge install` command when you want to install the app on a new site.
-- Once the app is installed on a site, the site picks up the new app changes you deploy without needing to rerun the install command.
+Click Connect to Arty AI.
 
-## Support
+You’ll be redirected to the Arty login screen — log in or create your account.
 
-See [Get help](https://developer.atlassian.com/platform/forge/get-help/) for how to get help and provide feedback.
+Approve the integration and return to Jira.
+
+📁 Step 3: Configure Your Projects
+In Jira, go to Project Settings > Arty AI Integration.
+
+Choose which projects or issue types Arty should monitor (e.g. “User Story”, “Feature”).
+
+Optionally: Add custom labels Arty will use to classify tickets (e.g. requires-security, compliance).
+
+🧠 Step 4: Set Up Compliance Profiles
+Arty comes preloaded with:
+
+OWASP ASVS
+
+PCI DSS
+
+GDPR (beta)
+
+To enable or disable profiles:
+
+In the Arty dashboard, go to Settings > Compliance Profiles.
+
+Toggle ON/OFF the frameworks you want Arty to use.
+
+You can also whitelist or ignore specific controls per project.
+
+⚡ Step 5: Let Arty Analyze Your Tickets
+Once Arty is active:
+
+When a new ticket is created (or updated), Arty scans the description and use case.
+
+Within seconds, it adds a comment to the ticket containing:
+
+Security concerns
+
+Suggested mitigation steps
+
+Referenced compliance controls (e.g. OWASP 5.3.1)
+
+🛠 Optionally, Arty can auto-create security sub-tasks with your approval.
+
+📊 Step 6: Review the Security Dashboard
+Go to your Arty AI dashboard (via your Jira app or external portal):
+
+See flagged tickets by status, severity, and team
+
+Download reports for audit/compliance
+
+Track improvement over time
+
+👥 Roles & Permissions
+Role	Permissions
+Jira Admin	Install, configure projects and compliance profiles
+Security Lead	Manage compliance settings, approve sub-tasks
+Product Manager	View suggestions, add security tickets to roadmap
+Developer	Resolve flagged risks, reference compliance comments
+❓ Troubleshooting
+Not seeing comments? Make sure Arty has access to the ticket type and your compliance profile is active.
+
+Too many false positives? Adjust your risk threshold in Settings > Risk Sensitivity.
